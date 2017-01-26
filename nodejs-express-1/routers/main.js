@@ -1,11 +1,54 @@
-var uuid = require('uuid/v1');
 var dataPath = __dirname + '/../data/user.json';
 
 module.exports = function(app, fs) {
   app.get('/', function(req, res) {
+    var session = req.session;
+
     res.render('index', {
       title: 'My Homepage',
       length: 5,
+      name: session.name,
+      username: session.username,
+    });
+  });
+
+  app.post('/login', function(req, res) {
+    if (!req.body['username'] || !req.body['password']) {
+      res.json({'success': 0, 'error': 'Invalid request.'});
+      return;
+    }
+
+    var session = req.session;
+
+    fs.readFile(dataPath, 'utf8', function(err, data) {
+      var users = JSON.parse(data);
+      var user = users[req.body['username']];
+
+      if (!user) {
+        res.json({'success': 0, 'error': 'User not found.'});
+        return;
+      }
+
+      if (user.password == req.body['password']) {
+        session.name = user.name;
+        session.username = req.body['username'];
+        res.redirect('/');
+      }
+      else {
+        res.json({'success': 0, 'error': 'Username and password are invalid.'});
+        return;
+      }
+    });
+  });
+
+  app.get('/logout', function(req, res) {
+    req.session.destroy(function(err) {
+      if (err) {
+        console.log(err);
+      }
+      else {
+        res.redirect('/');
+      }
     });
   });
 
@@ -25,14 +68,14 @@ module.exports = function(app, fs) {
 
   app.post('/users', function(req, res) {
     var result = {};
-    var username = uuid().toString();
 
     // Validation
-    if (!req.body['password'] || !req.body['name']) {
+    if (!req.body['username'] || !req.body['password'] || !req.body['name']) {
       res.json({'success': 0, 'error': 'Invalid request.'});
       return;
     }
 
+    var username = req.body['username'];
     // load data
     var users = {};
     fs.readFile(dataPath, 'utf8', function(err, data) {

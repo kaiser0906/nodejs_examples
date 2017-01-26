@@ -4,3 +4,9 @@
     <li><%= "LOOP " + i %></li>
   <% } %>
 </ul>
+
+<% if (username) { %>
+<h2>Welcome! <%= name %> (<%= username %>)</h2>
+<% } else { %>
+<h2>Please login</h2>
+<% } %>

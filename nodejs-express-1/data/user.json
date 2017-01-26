@@ -1,10 +1,15 @@
 {
-	"6a5a9860-e380-11e6-9c11-5b21192cc0ce": {
+	"davecho": {
 		"name": "Dave Cho",
 		"password": "1234"
 	},
-	"71f88410-e380-11e6-9c11-5b21192cc0ce": {
+	"emilycho": {
 		"name": "Emily Cho",
 		"password": "12345"
+	},
+	"jeremycho": {
+		"username": "jeremycho",
+		"name": "Jeremy Cho",
+		"password": "1234567"
 	}
 }
