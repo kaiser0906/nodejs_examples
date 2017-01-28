@@ -1,0 +1,5 @@
+{"_id":{"$oid":"588c1dcd82002f40780b689a"},"author":{"name":"J.K. Rowling","_id":{"$oid":"588c1dcd82002f40780b689b"}},"title":"Harry Potter and the Sorcerer's Stone","published_at":{"$date":"1999-09-08T04:00:00.000Z"}}
+{"_id":{"$oid":"588c231d36cb4941803b44e6"},"author":{"name":"J.K. Rowling","_id":{"$oid":"588c1dcd82002f40780b689b"}},"title":"Harry Potter And The Chamber Of Secrets","published_at":{"$date":"2000-08-15T04:00:00.000Z"}}
+{"_id":{"$oid":"588c292b36cb4941803b44ec"},"author":{"name":"J.K. Rowling","_id":{"$oid":"588c1dcd82002f40780b689b"}},"title":"Harry Potter and the Prisoner of Azkaban","published_at":{"$date":"2001-09-11T04:00:00.000Z"}}
+{"_id":{"$oid":"588c294e36cb4941803b44f4"},"author":{"name":"Dan Brown","_id":{"$oid":"588c294e36cb4941803b44f5"}},"title":"The Da Vinci Code","published_at":{"$date":"2009-03-31T04:00:00.000Z"}}
+{"_id":{"$oid":"588c295c36cb4941803b44f6"},"author":{"name":"Andy Weir","_id":{"$oid":"588c295c36cb4941803b44f7"}},"title":"The Martian","published_at":{"$date":"2014-02-11T05:00:00.000Z"}}
